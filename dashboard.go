@@ -313,11 +313,11 @@ func decodePostedDNSRecord(r *http.Request) (string, uint16, map[string]any, err
 		subdomain := strings.ToLower(r.PostFormValue("caa_subdomain"))
 		flag, err := strconv.ParseUint(r.PostFormValue("caa_flag"), 10, 8)
 		if err != nil {
-			return "", 0, nil, fmt.Errorf("Invalid CAA flag: %w", err)
+			return "", 0, nil, fmt.Errorf("invalid CAA flag: %w", err)
 		}
 		tag := r.PostFormValue("caa_tag")
 		if err := validateCAATag(tag); err != nil {
-			return "", 0, nil, fmt.Errorf("Invalid CAA tag: %w", err)
+			return "", 0, nil, fmt.Errorf("invalid CAA tag: %w", err)
 		}
 		value := r.PostFormValue("caa_value")
 		return subdomain, dns.TypeCAA, map[string]any{"Flag": flag, "Tag": tag, "Value": value}, nil
