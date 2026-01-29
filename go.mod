@@ -1,6 +1,6 @@
 module software.sslmate.com/src/dcv-inspector
 
-go 1.24.4
+go 1.24.12
 
 require (
 	github.com/emersion/go-smtp v0.20.1
